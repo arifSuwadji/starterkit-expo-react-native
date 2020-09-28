@@ -6,7 +6,7 @@ import { ActivityIndicator, Platform, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
-import { LoginScreen } from './screens';
+import { AuthLoadingScreen, LoginScreen } from './screens';
 import { DashboardScreen, KebersihanScreen } from './screens/Home';
 
 
@@ -28,9 +28,10 @@ export default function Router(props) {
             <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
                 <NavigationContainer linking={LinkingConfiguration}>
-                    <Stack.Navigator >
-                        <Stack.Screen name="BottomNavigator" component={BottomTabNavigator} options={{headerShown: false}}/>
+                    <Stack.Navigator initialRouteName="AuthLoading">
+                        <Stack.Screen name="Home" component={BottomTabNavigator} options={{headerShown: false}}/>
                         <Stack.Screen name="Login" component={ LoginScreen } options={{headerShown: false}} />
+                        <Stack.Screen name="AuthLoading" component={ AuthLoadingScreen } options={{headerShown: false}} />
                         <Stack.Screen name="Dashboard" component={ DashboardScreen } />
                         <Stack.Screen name="Kebersihan" component={ KebersihanScreen } />
                     </Stack.Navigator>
