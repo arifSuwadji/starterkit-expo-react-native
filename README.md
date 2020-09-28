@@ -16,3 +16,4 @@ yarn install
 | Halaman Login | ✅ |
 | Halaman Home | ✅ |
 | Manajemen State | ✅ |
+| Authentication Flows | ✅ |
