@@ -4,12 +4,11 @@ import { ActivityIndicator, Modal, View } from 'react-native';
 import { getState } from '../constants/CofigureStore';
 import Colors from '../constants/Colors';
 
-export default class AuthLoadingScreen extends React.Component {
+export default class NextLoading extends React.Component {
     constructor(){
         super();
-        const state = getState();
         this.state={
-            isLoading: state.pages.isLoading
+            isLoading: true
         }
         this._bootstrapAsync();
     }
@@ -17,7 +16,7 @@ export default class AuthLoadingScreen extends React.Component {
     _bootstrapAsync = async() => {
         const state = await getState();
         const isLoged = state.user.isLoged;
-        this.props.navigation.navigate(isLoged ? state.pages.defaultAuthPage : state.pages.defaultPage);
+
         setTimeout(() => {
             this.setState({ isLoading: false});
         }, 500);

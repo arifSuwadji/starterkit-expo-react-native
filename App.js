@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {Component} from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getPersistor, getStore } from './constants/CofigureStore';
-
-import BottomTabNavigator from './navigation/BottomTabNavigator';
 import Router from './Router';
 
 class App extends Component {

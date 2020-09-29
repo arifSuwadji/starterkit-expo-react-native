@@ -1,8 +1,11 @@
 const initialState = {
     host: 'http://192.168.43.122/',
-    urlPath: 'siWarga/api/',
-    urlPathOtp: '/codeOtp/',
-    urlPathLogin: 'pengguna/login'
+    urlPath: 'api',
+    urlPathRegister: 'warga-register',
+    urlPathLogin: 'login',
+    urlPathWarga: 'warga',
+    urlPathWargaEdit: 'edit',
+    urlPathWargaUpdate: 'update'
 }
 
 const server = (state = initialState, action) => {

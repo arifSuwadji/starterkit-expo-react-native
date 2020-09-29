@@ -1,19 +1,31 @@
 import userTypeAction from './userTypeAction';
 
 const initialState = {
+    fkRwId: "",
     idUser: 0,
     namaUser: '',
     hpUser: '',
     emailUser: '',
     alamatUser: '',
     passwordUser: '',
+    konfPasswordUser: '',
     saldoUser: 0,
     tokenUser: '',
     isLoged: 0,
+    latitudeRegister: null,
+    longtitudeRegister: null,
+    latitudeDinamis: null,
+    longtitudeDinamis:null,
+    location: null,
 }
 
 const user = (state = initialState, action) => {
     switch (action.type) {
+        case userTypeAction.FK_RW_ID:
+            return {
+                ...state,
+                fkRwId: action.fkRwId
+            }
         case userTypeAction.ID_USER:
             return {
                 ...state,
@@ -44,6 +56,11 @@ const user = (state = initialState, action) => {
                 ...state,
                 passwordUser: action.passwordUser
             }
+        case userTypeAction.KONF_PASSWORD_USER:
+            return {
+                ...state,
+                konfPasswordUser: action.konfPasswordUser
+            }
         case userTypeAction.TOKEN_USER:
             return {
                 ...state,
@@ -53,6 +70,31 @@ const user = (state = initialState, action) => {
             return {
                 ...state,
                 isLoged: action.isLoged
+            }
+        case userTypeAction.LATITUDE_REGISTER:
+            return {
+                ...state,
+                latitudeRegister: action.latitudeRegister
+            }
+        case userTypeAction.LONGTITUDE_REGISTER:
+            return {
+                ...state,
+                longtitudeRegister: action.longtitudeRegister
+            }
+        case userTypeAction.LATITUDE_DINAMIS:
+            return {
+                ...state,
+                latitudeDinamis: action.latitudeDinamis
+            }
+        case userTypeAction.LONGTITUDE_DINAMIS:
+            return {
+                ...state,
+                longtitudeDinamis: action.longtitudeDinamis
+            }
+        case userTypeAction.LOCATION:
+            return {
+                ...state,
+                location: action.location
             }
         default:
             return {

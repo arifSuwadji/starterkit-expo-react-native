@@ -4,7 +4,7 @@ import { ActivityIndicator, Modal, View } from 'react-native';
 import { getState } from '../constants/CofigureStore';
 import Colors from '../constants/Colors';
 
-export default class AuthLoadingScreen extends React.Component {
+export default class PageLoadingScreen extends React.Component {
     constructor(){
         super();
         const state = getState();

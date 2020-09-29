@@ -1,7 +1,9 @@
 import DashboardScreen from './DashboardScreen';
-import KebersihanScreen from './KebersihanScreen'
+import KebersihanScreen from './KebersihanScreen';
+import KesehatanScreen from './KesehatanScreen';
 
 export {
     DashboardScreen,
-    KebersihanScreen
+    KebersihanScreen,
+    KesehatanScreen
 }

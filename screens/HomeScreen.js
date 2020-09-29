@@ -18,7 +18,7 @@ function HomeScreen(props) {
                 <View style={{justifyContent: 'space-between', flexDirection: 'row', widht:'100%', flexWrap:'wrap'}}>
                     <HomeIcons title='DASHBOARD' img={require('../assets/images/home/icon_menu_update_data.png')} onPress={() => props.navigation.navigate('Dashboard')} />
                     <HomeIcons title='KEBERSIHAN' img={require('../assets/images/home/icon_menu_kebersihan.png')} onPress={() => props.navigation.navigate('Kebersihan')} />
-                    <HomeIcons title='KESEHATAN' img={require('../assets/images/home/icon_menu_kesehatan.png')} onPress={() => props.navigation.navigate('Login')}/>
+                    <HomeIcons title='KESEHATAN' img={require('../assets/images/home/icon_menu_kesehatan.png')} onPress={() => props.navigation.navigate('Kesehatan')}/>
                     <HomeIcons title='SOSIAL' img={require('../assets/images/home/icon_menu_sosial.png')}/>
                     <HomeIcons title='FASILITAS UMUM' img={require('../assets/images/home/icon_menu_sarana_umum.png')}/>
                     <HomeIcons title='KEMATIAN' img={require('../assets/images/home/icon_menu_kematian.png')}/>

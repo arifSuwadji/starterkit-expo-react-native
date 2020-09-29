@@ -1,0 +1,10 @@
+const pagesTypeAction = {
+    NEXT_PAGE: 'NEXT_PAGE',
+    NEXT_AUTH_PAGE: 'NEXT_AUTH_PAGE',
+    TIMEOUT_LOADING: 'TIMEOUT_LOADING',
+    IS_LOADING: 'IS_LOADING',
+    DEFAULT_PAGE: 'DEFAULT_PAGE',
+    DEFAULT_AUTH_PAGE: 'DEFAULT_AUTH_PAGE'
+}
+
+export default pagesTypeAction;

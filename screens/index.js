@@ -4,6 +4,8 @@ import ProfileScreen from './ProfileScreen';
 import WorkingScreen from './WorkingScreen';
 import LoginScreen from './LoginScreen';
 import AuthLoadingScreen from './AuthLoadingScreen';
+import RegisterScreen from './RegisterScreen';
+import PageLoadingScreen from './PageLoadingScreen';
 
 export {
     HomeScreen,
@@ -12,4 +14,6 @@ export {
     WorkingScreen,
     LoginScreen,
     AuthLoadingScreen,
+    RegisterScreen,
+    PageLoadingScreen
 }
