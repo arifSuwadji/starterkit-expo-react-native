@@ -7,8 +7,9 @@ import Colors from '../constants/Colors';
 export default class NextLoading extends React.Component {
     constructor(){
         super();
+        const state = getState();
         this.state={
-            isLoading: true
+            isLoading: state.pages.isLoading
         }
         this._bootstrapAsync();
     }
@@ -18,7 +19,9 @@ export default class NextLoading extends React.Component {
         const isLoged = state.user.isLoged;
 
         setTimeout(() => {
-            this.setState({ isLoading: false});
+            if(this.state.isLoading !== false){
+                this.setState({ isLoading: false});
+            }
         }, 500);
     }
 

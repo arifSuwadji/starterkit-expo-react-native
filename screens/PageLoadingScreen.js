@@ -19,7 +19,9 @@ export default class PageLoadingScreen extends React.Component {
         const isLoged = state.user.isLoged;
         this.props.navigation.navigate(isLoged ? state.pages.defaultAuthPage : state.pages.defaultPage);
         setTimeout(() => {
-            this.setState({ isLoading: false});
+            if(this.state.isLoading !== false){
+                this.setState({ isLoading: false});
+            }
         }, 500);
     }
 

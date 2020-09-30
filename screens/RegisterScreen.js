@@ -101,6 +101,10 @@ function RegisterScreen(props) {
     );
 }
 
+function nextPage(props){
+    props.nextPage(props);
+}
+
 RegisterScreen.navigationOptions = {
     header: null,
 };
@@ -119,6 +123,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handlerLoginPage: async (props) => {
+            await dispatch({ type: userTypeAction.EMAIL_USER, emailUser: ''});
+            await dispatch({ type: userTypeAction.PASSWORD_USER, passwordUser: '' });
             await dispatch({ type: pagesTypeAction.IS_LOADING, isLoading: true});
             await dispatch({ type: pagesTypeAction.DEFAULT_PAGE, defaultPage: 'Login'});
             props.navigation.navigate('PageLoading');
@@ -144,13 +150,13 @@ const mapDispatchToProps = (dispatch) => {
             let secureText = state.icons.securePassword;
             let colorText = state.icons.colorIconPassword;
             if(showIcon == state.icons.iconShowPassword){
-                showIcon = 'ios-eye-off';
+                showIcon = 'ios-eye';
                 secureText = true;
-                colorText = Colors.errorBackground;
+                colorText = Colors.bodyColor;
             }else{
                 showIcon = state.icons.iconShowPassword; 
                 secureText = state.icons.secureFalsePassword;
-                colorText = Colors.bodyColor;
+                colorText = Colors.errorBackground;
             }
             
             await dispatch({ type: iconsTypeAction.HIDE_TEXT, hideText: showIcon});
@@ -163,13 +169,13 @@ const mapDispatchToProps = (dispatch) => {
             let secureText = state.icons.secureKonfPassword;
             let colorKonfText = state.icons.colorIconKonfPassword
             if(showIcon == state.icons.iconShowKonfPassword){
-                showIcon = 'ios-eye-off';
+                showIcon = 'ios-eye';
                 secureText = true;
-                colorKonfText = Colors.errorBackground;
+                colorKonfText = Colors.bodyColor;
             }else{
                 showIcon = state.icons.iconShowKonfPassword; 
                 secureText = state.icons.secureFalseKonfPassword;
-                colorKonfText = Colors.bodyColor;
+                colorKonfText = Colors.errorBackground;
             }
             
             await dispatch({ type: iconsTypeAction.HIDE_KONF_TEXT, hideKonfText: showIcon});
@@ -244,12 +250,9 @@ const mapDispatchToProps = (dispatch) => {
                     console.log('response json ', responseJson);
                     if(responseJson.status === 200){
                         props.navigation.navigate('PageLoading');
-                        await dispatch({ type: userTypeAction.EMAIL_USER, emailUser: responseJson.data.email});
+                        await dispatch({ type: userTypeAction.EMAIL_USER, emailUser: ''});
+                        await dispatch({ type: userTypeAction.PASSWORD_USER, passwordUser: ''});
                         await dispatch({ type: userTypeAction.FK_RW_ID, fkRwId: responseJson.data.fk_rw_id});
-                        await dispatch({ type: userTypeAction.LATITUDE_REGISTER, latitudeRegister: responseJson.data.latitude});
-                        await dispatch({ type: userTypeAction.LONGTITUDE_REGISTER, longtitudeRegister: responseJson.data.longtitude});
-                        await dispatch({ type: userTypeAction.NAMA_USER, namaUser: responseJson.data.nama});
-                        await dispatch({ type: userTypeAction.HP_USER, hpUser: responseJson.data.phone});
                         await dispatch({ type: userTypeAction.ID_USER, idUser: responseJson.data.warga_id});
                         Alert.alert(
                             'siWarga',
@@ -257,7 +260,7 @@ const mapDispatchToProps = (dispatch) => {
                             [
                                 {
                                     text: 'OK',
-                                    onPress: () => props.navigation.navigate('Login')
+                                    onPress: () => nextPage(props)
                                 }
                             ]
                         )
@@ -269,6 +272,10 @@ const mapDispatchToProps = (dispatch) => {
                     }
                 }
             }
+        },
+        nextPage: async (props) =>{
+            await dispatch({ type: pagesTypeAction.DEFAULT_PAGE, defaultPage: 'Login'});
+            props.navigation.navigate('PageLoading');
         }
     }
 }

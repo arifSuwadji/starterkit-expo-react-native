@@ -2,16 +2,16 @@ import iconsTypeAction from './iconsTypeAction';
 import Colors from '../../../constants/Colors';
 
 const initialState = {
-    iconHidePassword: 'ios-eye-off',
-    iconShowPassword: 'ios-eye',
+    iconHidePassword: 'ios-eye',
+    iconShowPassword: 'ios-eye-off',
     securePassword: true,
     secureFalsePassword : false,
-    iconHideKonfPassword: 'ios-eye-off',
-    iconShowKonfPassword: 'ios-eye',
+    iconHideKonfPassword: 'ios-eye',
+    iconShowKonfPassword: 'ios-eye-off',
     secureKonfPassword: true,
     secureFalseKonfPassword: false,
-    colorIconPassword: Colors.errorBackground,
-    colorIconKonfPassword: Colors.errorBackground,
+    colorIconPassword: Colors.bodyColor,
+    colorIconKonfPassword: Colors.bodyColor,
 }
 
 const icons = (state = initialState, action) => {

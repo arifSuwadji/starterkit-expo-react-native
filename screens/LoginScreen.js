@@ -116,13 +116,13 @@ const mapDispatchToProps = (dispatch) => {
             let secureText = state.icons.securePassword;
             let colorText = state.icons.colorIconPassword;
             if(showIcon == state.icons.iconShowPassword){
-                showIcon = 'ios-eye-off';
+                showIcon = 'ios-eye';
                 secureText = true;
-                colorText = Colors.errorBackground;
+                colorText = Colors.bodyColor;
             }else{
                 showIcon = state.icons.iconShowPassword; 
                 secureText = state.icons.secureFalsePassword;
-                colorText = Colors.bodyColor;
+                colorText = Colors.errorBackground;
             }
             
             await dispatch({ type: iconsTypeAction.HIDE_TEXT, hideText: showIcon});
